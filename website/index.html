@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml" ng-app="f2m-app">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Fixed-To-Mobile Number Mapper">
+    <meta author="Sebastian Schumann">
+    <title>Fixed-To-Mobile Number Mapper</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+    <script src="f2m-fe.js"></script>
+  </head>
+  <body ng-controller="bodyController">
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="https://www.number-mapper.com/">Home</a></li>
+            <li role="presentation"><a href="https://www.s-schumann.com/">www.s-schumann.com</a></li>
+          </ul>
+        </nav>
+        <h1 class="text-muted">Fixed-To-Mobile Number Mapper</h1>
+      </div>
+      <div class="jumbotron">
+        <p>Map your mobile number to your fixed number.</p>
+        <ol style="text-align:left;">
+          <li>Send an SMS with the text "link 0212345678" to <strong>0902 028 031</strong></li>
+            <ul>
+              <li>Replace 0212345678 with your fixed number</li>
+              <li>You will receive a 4-digit PIN</li>
+            </ul>
+          <li>Call from your fixed number to <strong>02 3345 6835</strong> and enter your PIN</li>
+          <li>If the combinations are correct your numbers are mapped, otherwise try again</li>
+        </ol>
+        <h2>We have a total of <span class="label label-primary">{{ users.length }}</span> users mapped :)</h2>
+      </div>
+      <div class="row marketing">
+        <div id="users-list" class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <table class="table table-striped">
+              <tr>
+                <th>Fixed</th>
+                <th>Mobile</th>
+                <th>PIN</th>
+                <th>Action</th>
+              </tr>
+              <tr ng-repeat="user in users" ng-class="{success: user.confirmed==true}">
+                <td>{{ user.fixedNr }}</td>
+                <td>{{ user.mobileNr }}</td>
+                <td>{{ user.pin }}</td>
+                <td>
+                  <button type="button" class="btn btn-danger btn-xs" ng-click="deleteUser(user._id)">Delete</button>
+                </td>
+              </tr>
+            </table>
+            <p class="text-center" ng-show="loading">
+              <span class="fa fa-spinner fa-spin fa-3x"></span>
+            </p>
+          </div>
+        </div>
+        <!-- div id="user-form" class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control input-lg text-center" placeholder="Fixed" ng-model="formData.fixedNr">
+                <input type="text" class="form-control input-lg text-center" placeholder="Mobile" ng-model="formData.mobileNr">
+                <input type="text" class="form-control input-lg text-center" placeholder="PIN" ng-model="formData.pin">
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg" ng-click="createUser()">Add User</button>
+            </form>
+          </div>
+        </div -->
+        <footer class="footer">
+          <p class="text-muted">
+            <span style="float: left;">&copy; Sebastian Schumann, 2015</span>
+            <!-- span style="float: right;">Powered by .</span -->
+          </p>
+        </footer>
+        <div style="clear: both;"></div>
+      </div>
+    </div>
+  </body>
+</html>

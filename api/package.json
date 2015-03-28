@@ -1,0 +1,18 @@
+{
+  "name": "api.number-mapper.com",
+  "version": "0.0.1",
+  "homepage" : "https://api.number-mapper.com",
+  "license" : "MIT",
+  "author": "Sebastian Schumann <mail@s-schumann.com>",
+  "private": true,
+  "scripts": {
+    "start": "node server.js | ./node_modules/bunyan/bin/bunyan"
+  },
+  "dependencies": {
+    "restify": "2.8.x",
+    "bunyan": "1.2.x",
+    "mongodb" : "1.4.x",
+    "mongoose" : "3.8.x",
+    "easynexmo" : "0.5.x"
+  }
+}

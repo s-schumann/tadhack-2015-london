@@ -14,6 +14,7 @@ To deploy the website, change the output directory in `Gruntfile.js`.
 $ pwd
 ./website
 $ npm install
+$ ./node_modules/bower/bin/bower install
 $ ./node_modules/grunt-cli/bin/grunt
 $ bower install
 ```

@@ -1,0 +1,15 @@
+{
+  "name" : "www.number-mapper.com",
+  "description": "Implementation of Fixed-To-Mobile Number Mapper RESTful API.",
+  "repository": "git@github.com:s-schumann/tadhack-2015-london.git",
+  "version" : "1.0.0",
+  "homepage" : "https://api.number-mapper.com",
+  "license" : "MIT",
+  "author": "Sebastian Schumann <mail@s-schumann.com>",
+  "devDependencies" : {
+    "grunt" : "0.4.*",
+    "grunt-contrib-htmlmin" : "0.4.*",
+    "grunt-contrib-cssmin" : "0.12.*",
+    "grunt-contrib-uglify" : "0.8.*"
+  }
+}

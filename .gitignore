@@ -28,3 +28,7 @@ node_modules
 
 # Local config file
 config.js
+
+# Ignore output directory
+output
+

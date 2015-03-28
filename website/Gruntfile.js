@@ -6,14 +6,19 @@
  */
 
 module.exports = function(grunt) {
+  var config = {
+    www: './output'
+  };
+
   grunt.initConfig({
+    config: config,
     htmlmin: {                        // Task
       multiple: {                     // Target
         files: [{                     // Dictionary of files
           expand: true,
           cwd: './',                  // Project root
           src: '*.html',               // Source
-          dest: './output',                 // Destination
+          dest: '<%= config.www %>',                 // Destination
           ext: '.html'                // Extension of new files
         }],
         options: {                    // Target options
@@ -30,7 +35,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: './',
           src: ['*.css'],
-          dest: './output',
+          dest: '<%= config.www %>/css',
           ext: '.css'
         }]
       }
@@ -47,9 +52,55 @@ module.exports = function(grunt) {
           expand: true,
           cwd: './',
           src: ['*.js', '!Gruntfile.js'],
-          dest: './output',
+          dest: '<%= config.www %>/js',
           ext: '.js'
         }]
+      }
+    },
+    copy: {
+      dist: {
+       files: [{
+         expand: true,
+         flatten: true,
+         src: 'bower_components/angular/angular.min.*',
+         dest: '<%= config.www %>/js'
+       },
+       {
+         expand: true,
+         flatten: true,
+         src: 'bower_components/bootstrap/dist/css/bootstrap.min.css',
+         dest: '<%= config.www %>/css'
+       },
+       {
+         expand: true,
+         flatten: true,
+         src: 'bower_components/bootstrap/dist/js/bootstrap.min.js',
+         dest: '<%= config.www %>/js'
+       },
+       {
+         expand: true,
+         flatten: true,
+         src: 'bower_components/bootstrap/dist/fonts/*',
+         dest: '<%= config.www %>/fonts'
+       },
+       {
+         expand: true,
+         flatten: true,
+         src: 'bower_components/jquery/dist/jquery.min.*',
+         dest: '<%= config.www %>/js'
+       },
+       {
+         expand: true,
+         flatten: true,
+         src: 'bower_components/font-awesome/css/font-awesome.min.css',
+         dest: '<%= config.www %>/css'
+       },
+       {
+         expand: true,
+         flatten: true,
+         src: 'bower_components/font-awesome/fonts/*',
+         dest: '<%= config.www %>/fonts'
+       }]
       }
     }
   });
@@ -57,6 +108,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['htmlmin', 'cssmin', 'uglify']);
+  grunt.registerTask('default', ['htmlmin', 'cssmin', 'uglify', 'copy']);
 };

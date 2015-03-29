@@ -1,16 +1,21 @@
 {
   "name" : "www.number-mapper.com",
-  "description": "Implementation of Fixed-To-Mobile Number Mapper RESTful API.",
-  "repository": "git@github.com:s-schumann/tadhack-2015-london.git",
+  "description": "Implementation of Fixed-To-Mobile Number Mapper Website",
+  "repository": {
+    "type": "git",
+    "url" : "git@github.com:s-schumann/tadhack-2015-london.git"
+  },
   "version" : "1.0.0",
   "homepage" : "https://www.number-mapper.com",
   "license" : "MIT",
-  "author": "Sebastian Schumann <mail@s-schumann.com>",
+  "authors": [
+    "Sebastian Schumann <mail@s-schumann.com>"
+  ],
+  "private": true,
   "main": "index.html",
   "moduleType": [
     "globals"
   ],
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",

@@ -1,7 +1,10 @@
 {
   "name": "api.number-mapper.com",
-  "description": "Implementation of Fixed-To-Mobile Number Mapper RESTful API.",
-  "repository": "git@github.com:s-schumann/tadhack-2015-london.git",
+  "description": "Implementation of Fixed-To-Mobile Number Mapper RESTful API",
+  "repository": {
+    "type": "git",
+    "url" : "git@github.com:s-schumann/tadhack-2015-london.git"
+  },
   "version": "0.0.1",
   "homepage" : "https://api.number-mapper.com",
   "license" : "MIT",

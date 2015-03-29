@@ -7,11 +7,16 @@
 
 module.exports = function(grunt) {
   var config = {
-    www: './output'
+    www: 'output'
   };
 
   grunt.initConfig({
     config: config,
+    clean: {
+      build: {
+        src: [ '<%= config.www %>/*', '!<%= config.www %>/.htkeep' ]
+      }
+    },
     htmlmin: {                        // Task
       multiple: {                     // Target
         files: [{                     // Dictionary of files
@@ -105,10 +110,11 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['htmlmin', 'cssmin', 'uglify', 'copy']);
+  grunt.registerTask('default', ['clean', 'htmlmin', 'cssmin', 'uglify', 'copy']);
 };

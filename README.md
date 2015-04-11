@@ -1,10 +1,10 @@
 # TADHack 2015 London
 
-Project for TADHack 2015 in London
+Project for TADHack 2015 in London (11./12. April 2015).
 
 ## Fixed-To-Mobile Number Mapper
 
-This service maps a fixed number to a mobile number purely based on calling line identification.
+This service maps a fixed number to a mobile number purely based on calling line identification. It is based on a self-developed API, Nexmo for handling SMS, and Restcomm for handling fixed line calls and their authentication logic.
 
 ### Directories
 
@@ -18,7 +18,7 @@ This service maps a fixed number to a mobile number purely based on calling line
 
 ## Version
 
-* Version 0.0.1
+* Version 1.0.0
 
 ## Contact
 

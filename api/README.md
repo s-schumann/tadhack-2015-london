@@ -43,6 +43,7 @@ Type: `raw/JSON (application/json)`
 - **GET** /api/v1/mobile : Nexmo - SMS endpoint for processing "link fixedNr pin" SMS
 - **GET** /api/v1/fixed : RestComm - Endpoint for processing call to verify fixed number
 - **GET** /api/v1/request-fixed/:number : RestComm - Check if this fixed number is requested to be linked
+- **GET** /api/v1/confirmed-fixed/:number : RestComm - Check if fixed number is already confirmed
 - **GET** /api/v1/verify-fixed/:number : Display linked mobile number
 - **GET** /api/v1/verify-mobile/:number : Display linked fixed number
 

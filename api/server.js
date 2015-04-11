@@ -342,6 +342,33 @@ server.get('/api/v1/request-fixed/:number', function(req, res, next) {
   });
 });
 
+server.get('/api/v1/confirmed-fixed/:number', function(req, res, next) {
+  // Retrieve data
+  if(config.web.debug) {
+    console.log("Status report:");
+    console.log(req.params);
+  }
+  var fixedNr = normalizeMsisdn(req.params.number);
+
+  // Find entry
+  UserModel.findOne({"fixedNr" : fixedNr}, function (err, user) {
+    if (!err) {
+      if(user !== null && user.confirmed) {
+        console.log("Confirmed");
+        res.send(200);
+      } else {
+        console.log("Not confirmed");
+        res.send(404);
+      }
+    } else {
+      console.log("An error occurred.");
+      console.log(err);
+      res.send(400);
+    }
+    return next();
+  });
+});
+
 server.get('/api/v1/verify-fixed/:number', function(req, res, next) {
   // Retrieve data
   if(config.web.debug) {

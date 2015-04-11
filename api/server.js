@@ -381,8 +381,11 @@ server.get('/api/v1/verify-fixed/:number', function(req, res, next) {
   UserModel.findOne({"fixedNr" : fixedNr,"confirmed":true}, function (err, user) {
     if (!err) {
       if(user !== null) {
-        console.log("confirmed");
-        res.send(200, user.mobileNr);
+        console.log("The mapped mobile number is " + user.mobileNr);
+        res.contentType = 'json';
+        var json = {};
+        json.mobileNr = user.mobileNr;
+        res.send(200, json);
       } else {
         console.log("not confirmed");
         res.send(404);
@@ -408,8 +411,11 @@ server.get('/api/v1/verify-mobile/:number', function(req, res, next) {
   UserModel.findOne({"mobileNr" : mobileNr,"confirmed":true}, function (err, user) {
     if (!err) {
       if(user !== null) {
-        console.log("confirmed");
-        res.send(200, user.fixedNr);
+        console.log("The mapped fixed number is " + user.fixedNr);
+        res.contentType = 'json';
+        var json = {};
+        json.fixedNr = user.fixedNr;
+        res.send(200, json);
       } else {
         console.log("not confirmed");
         res.send(404);

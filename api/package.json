@@ -5,7 +5,7 @@
     "type": "git",
     "url" : "git@github.com:s-schumann/tadhack-2015-london.git"
   },
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage" : "https://api.number-mapper.com",
   "license" : "MIT",
   "author": "Sebastian Schumann <mail@s-schumann.com>",

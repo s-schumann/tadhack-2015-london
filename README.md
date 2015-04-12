@@ -18,7 +18,7 @@ This service maps a fixed number to a mobile number purely based on calling line
 
 ## Version
 
-* Version 1.0.0
+* Version 1.2.0
 
 ## Contact
 

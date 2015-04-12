@@ -34,7 +34,8 @@ Type: `raw/JSON (application/json)`
   {
     "mobileNr" : "1214312523465",
     "pin" : "4442",
-    "fixedNr" : "11221113111"
+    "fixedNr" : "11221113111",
+    "confirmed" : true
   }
 ```
 
